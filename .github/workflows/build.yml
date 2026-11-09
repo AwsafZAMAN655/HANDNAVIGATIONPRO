@@ -27,10 +27,9 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK packages
-        run: |
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+        with:
+          api-level: 34
+          build-tools-version: 34.0.0
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -46,3 +45,4 @@ jobs:
           name: HandNavigationPRO-debug
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
